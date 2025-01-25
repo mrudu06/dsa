@@ -6,9 +6,9 @@
 
 int get_array_size_from_user();
 
-int* create_new_array_with_user_input(int size);
+int* create_new_array_and_intialize_with_user_input(int size);
 
-int* create_new_array_with_random_elements(int size);
+int* create_new_array_and_initalize_with_random_elements(int size);
 
 void initialize_array_from_user(int *nums, int size);
 
