@@ -20,46 +20,18 @@ int get_array_size_from_user()
     return size;
 }
 
-int* create_new_array_with_user_input(int size)
+int* create_new_array(int size)
 {
     int *nums = (int*)malloc(size * sizeof(int));
     if (nums == NULL)
     {
         printf("Memory allocation failed!\n");
-        exit(1);
+        // exit(1);
+        abort();
     }
 
     memset(nums, 0, size * sizeof(int));
-
-    for (int i = 0; i < size; i++)
-    {
-        printf("Enter the value of element %d: ", i + 1);
-        scanf("%d", &nums[i]);
-    }
-
     return nums;
-}
-
-int* create_new_array_with_random_elements(int size)
-{
-    
-    if (size <= 0) {
-        printf("Error: Size must be greater than zero\n");
-        return NULL;
-    }
-
-    int *array = (int*)malloc(size * sizeof(int));
-    if (array == NULL) {
-        printf("Memory allocation failed!\n");
-        exit(1);
-    }
-
-    // for (int i = 0; i < size; i++) 
-    // {
-    //     array[i] = rand() ; 
-    // }
-
-    return array;
 }
 
 void initialize_array_from_user(int *array, int size)
@@ -71,32 +43,36 @@ void initialize_array_from_user(int *array, int size)
     }    
 }
 
-
 void initialize_array_with_random_elements(int *nums, int size)
 {
     for (int i = 0; i < size; i++)
-    { 
-        nums[i] = rand() ;
+    {
+        nums[i] = rand();
     }
+}
+
+int* create_new_array_and_intialize_with_user_input(int size)
+{
+    int* nums = create_new_array(size);
+    initialize_array_from_user(nums, size);
+    return nums;
+}
+
+int* create_new_array_and_initalize_with_random_elements(int size)
+{    
+    int* array = create_new_array(size);
+    initialize_array_with_random_elements(array, size);
+    return array;
 }
 
 int *clone_array(int *nums, int size)
-{
-    return NULL;
+{   
+    int *clone_array = create_new_array(size);
+    memcpy(clone_array, nums, size * sizeof(int));
+    return clone_array;
 }
 
-void rotate_array(int *nums, int size, int number_of_times_rotate)
-{
-    for (int count = 0; count < number_of_times_rotate; count++)
-    {
-        int last_element = nums[size - 1];
-        for (int i = size - 1; i > 0; i--)
-        {
-            nums[i] = nums[i - 1];
-        }
-        nums[0] = last_element;
-    }
-}
+
 
 void print_array(int *nums, int size)
 {
