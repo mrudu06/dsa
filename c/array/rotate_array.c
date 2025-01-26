@@ -107,11 +107,11 @@ int main()
     
     printf("Original array.\n");
 
-    print_array(orig_array,MAX_SIZE);
+    print_array("Original array",orig_array,MAX_SIZE);
 
     printf("ROtated array.\n");
 
-    print_array(my_nums, MAX_SIZE);
+    print_array("Rotated array",my_nums, MAX_SIZE);
 
     /* Verify rotate array*/   
 
