@@ -26,7 +26,6 @@ int* create_new_array(int size)
     if (nums == NULL)
     {
         printf("Memory allocation failed!\n");
-        // exit(1);
         abort();
     }
 
@@ -34,7 +33,7 @@ int* create_new_array(int size)
     return nums;
 }
 
-void initialize_array_from_user(int *array, int size)
+void initialize_array_with_user_input(int *array, int size)
 {
     for (int i = 0; i < size; i++)
     {
@@ -74,9 +73,9 @@ int *clone_array(int *nums, int size)
 
 
 
-void print_array(int *nums, int size)
+void print_array(char name,int *nums, int size)
 {
-    printf("Array elements: ");
+    printf("%c",&name);
     for (int i = 0; i < size; i++)
     {
         printf("%d ", nums[i]);

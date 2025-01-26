@@ -14,9 +14,9 @@
  *rotate is 2.
 */
 
-void rotate_array(int *nums, int size, int number_of_times_rotate)
+void rotate_array(int *nums, int size, int rotate_count)
 {
-    for (int count = 0; count < number_of_times_rotate; count++)
+    for (int index = 0; index < rotate_count; index++)
     {
         int last_element = nums[size - 1];
         for (int i = size - 1; i > 0; i--)
@@ -79,12 +79,12 @@ bool is_array_rotated(int *rotated_array, int size, int n,int* orig_array)
 
 int main()
 {
-    int number_of_times_rotate;
+    int rotate_count;
     int* my_nums;
     int* orig_array;
     srand(time(NULL));
 
-    number_of_times_rotate = rand() % MAX_SIZE; 
+    rotate_count = rand() % MAX_SIZE; 
     
     /*
     *This function call gets the user input for the original array.
@@ -98,12 +98,12 @@ int main()
 
     orig_array = clone_array(my_nums,MAX_SIZE); 
 
-    rotate_array(my_nums, MAX_SIZE, number_of_times_rotate);
+    rotate_array(my_nums, MAX_SIZE, rotate_count);
     
-    (is_array_rotated(my_nums,MAX_SIZE,number_of_times_rotate,orig_array));
+    assert(is_array_rotated(my_nums,MAX_SIZE,rotate_count,orig_array));
 
     printf("rotate success:\n");
-    printf("NO.of times rotated:%d\n",number_of_times_rotate);
+    printf("NO.of times rotated:%d\n",rotate_count);
     
     printf("Original array.\n");
 
