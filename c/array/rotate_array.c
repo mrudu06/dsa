@@ -80,8 +80,8 @@ bool is_array_rotated(int *rotated_array, int size, int n,int* orig_array)
 int main()
 {
     int rotate_count;
-    int* my_nums;
-    int* orig_array;
+    int *my_nums;
+    int *orig_array;
     srand(time(NULL));
 
     rotate_count = rand() % MAX_SIZE; 

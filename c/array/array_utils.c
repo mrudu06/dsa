@@ -20,7 +20,7 @@ int get_array_size_from_user()
     return size;
 }
 
-int* create_new_array(int size)
+int *create_new_array(int size)
 {
     int *nums = (int*)malloc(size * sizeof(int));
     if (nums == NULL)
@@ -50,14 +50,14 @@ void initialize_array_with_random_elements(int *nums, int size)
     }
 }
 
-int* create_new_array_and_intialize_with_user_input(int size)
+int *create_new_array_and_intialize_with_user_input(int size)
 {
     int* nums = create_new_array(size);
     initialize_array_from_user(nums, size);
     return nums;
 }
 
-int* create_new_array_and_initalize_with_random_elements(int size)
+int *create_new_array_and_initalize_with_random_elements(int size)
 {    
     int* array = create_new_array(size);
     initialize_array_with_random_elements(array, size);
