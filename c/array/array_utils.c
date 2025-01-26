@@ -52,14 +52,14 @@ void initialize_array_with_random_elements(int *nums, int size)
 
 int *create_new_array_and_intialize_with_user_input(int size)
 {
-    int* nums = create_new_array(size);
+    int *nums = create_new_array(size);
     initialize_array_from_user(nums, size);
     return nums;
 }
 
 int *create_new_array_and_initalize_with_random_elements(int size)
 {    
-    int* array = create_new_array(size);
+    int *array = create_new_array(size);
     initialize_array_with_random_elements(array, size);
     return array;
 }
@@ -73,9 +73,9 @@ int *clone_array(int *nums, int size)
 
 
 
-void print_array(char name,int *nums, int size)
+void print_array(char* name,int *nums, int size)
 {
-    printf("%c",&name);
+    printf("%s",&name);
     for (int i = 0; i < size; i++)
     {
         printf("%d ", nums[i]);

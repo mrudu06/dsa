@@ -46,6 +46,7 @@ bool is_array_rotated(int *rotated_array, int size, int n,int* orig_array)
 // j=size-1; j>size-n; j--
 // 9 10 1 2 3 4 5 6 7 8
 // 1 2 3 4 5 6 7 8 9 10
+//here the rotation takes place in place.
 
     /* this loop checks the first n elements of the rotated array
      * with the lat n elements of the original array in reverse orders.
@@ -86,25 +87,20 @@ int main()
 
     rotate_count = rand() % MAX_SIZE; 
     
-    /*
-    *This function call gets the user input for the original array.
-    */
+    //This function call gets the user input for the original arraay
     my_nums = create_new_array_and_intialize_with_user_input(MAX_SIZE);
 
     // initialize_array_with_random_elements(my_nums, 10);
-    /*
-    *THis initializes the array with random elements.
-    */
-
+    //THis initializes the array with random elements.
+    
+    //here the original array is stored as the the array gets rotated in later part
+    //hence it is stored in orig array.
     orig_array = clone_array(my_nums,MAX_SIZE); 
 
     rotate_array(my_nums, MAX_SIZE, rotate_count);
     
     assert(is_array_rotated(my_nums,MAX_SIZE,rotate_count,orig_array));
 
-    printf("rotate success:\n");
-    printf("NO.of times rotated:%d\n",rotate_count);
-    
     printf("Original array.\n");
 
     print_array("Original array",orig_array,MAX_SIZE);
