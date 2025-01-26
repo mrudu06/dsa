@@ -62,7 +62,7 @@ int* create_new_array_with_random_elements(int size)
     return array;
 }
 
-void initialize_array_from_user(int *array, int size)
+void initialize_array_with _user_input(int *array, int size)
 {
     for (int i = 0; i < size; i++)
     {
