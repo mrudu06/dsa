@@ -3,8 +3,9 @@
 #include <string.h>
 #include <unistd.h>
 #include <fcntl.h>
+#include <assert.h>
 
-int get_array_size_from_user();
+extern int get_array_size_from_user();
 
 int *create_new_array_and_intialize_with_user_input(int size);
 
@@ -18,5 +19,5 @@ int *clone_array(int *nums, int size);
 
 void rotate_array(int* nums, int size, int number_of_times_rotate);
 
-void print_array(int *nums, int size);
+void print_array(char *name,int *nums, int size);
 

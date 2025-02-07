@@ -30,10 +30,10 @@ void rotate_array(int *nums, int size, int rotate_count)
 
 
 /* 
- * is_array_rotated checks if the rotated array actually represents the
+ * test_rotate_array checks if the rotated array actually represents the
  * origianal_array after nu number of rotations from the right hand side.
 */
-bool is_array_rotated(int *rotated_array, int size, int n,int* orig_array)
+bool test_rotate_array(int *rotated_array, int size, int n,int* orig_array)
 {
 
 
@@ -49,8 +49,8 @@ bool is_array_rotated(int *rotated_array, int size, int n,int* orig_array)
 //here the rotation takes place in place.
 
     /* this loop checks the first n elements of the rotated array
-     * with the lat n elements of the original array in reverse orders.
-     * For example check the  9, 10 in rotatedarray with 10,9 in reverse.
+     * with the last n elements of the original array in reverse order.
+     * For example check the  9, 10 in rotated array with 10,9 in reverse.
      */
     for (int i=0, j=size-1; i<n; i++,j--)
     {
@@ -91,23 +91,20 @@ int main()
     my_nums = create_new_array_and_intialize_with_user_input(MAX_SIZE);
 
     // initialize_array_with_random_elements(my_nums, 10);
-    //THis initializes the array with random elements.
+    //This initializes the array with random elements.
     
     //here the original array is stored as the the array gets rotated in later part
     //hence it is stored in orig array.
-    orig_array = clone_array(my_nums,MAX_SIZE); 
 
-    rotate_array(my_nums, MAX_SIZE, rotate_count);
-    
-    assert(is_array_rotated(my_nums,MAX_SIZE,rotate_count,orig_array));
+    orig_array = clone_array(my_nums,MAX_SIZE);
+    rotate_array(my_nums, MAX_SIZE, rotate_count);    
+    assert(test_rotate_array(my_nums,MAX_SIZE,rotate_count,orig_array));
 
-    printf("Original array.\n");
+    // "origginal array: [ 10, 20, 30 ]
+    // "rotated array: [ 30, 10, 20 ]
 
     print_array("Original array",orig_array,MAX_SIZE);
-
-    printf("ROtated array.\n");
-
-    print_array("Rotated array",my_nums, MAX_SIZE);
+    print_array("Rotated array",my_nums,MAX_SIZE);
 
     /* Verify rotate array*/   
 
