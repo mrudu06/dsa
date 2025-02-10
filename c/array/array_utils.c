@@ -59,7 +59,7 @@ int *create_new_array_and_intialize_with_user_input(int size)
 {
     // This funciton is the combination of the above two functions with a values taken from user.
     int *nums = create_new_array(size);
-    initialize_array_from_user(nums, size);
+    initialize_array_with_user_input(nums, size);
     return nums;
 }
 

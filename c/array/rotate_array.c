@@ -27,15 +27,50 @@ void rotate_array(int *nums, int size, int rotate_count)
     }
 }
 
+/*
+* 1 2 3 4 5 6 7 8 9
+* 9 8 7 6 5 4 3 2 1 
+* no.rc = 3
+* 7 8 9 6 5 4 3 2 1
+* 7 8 9 1 2 3 4 5 6
+*/
+
+void reverse_array(int *nums,int size)
+{
+    int last = size-1;
+    for (int frwd_index = 0; frwd_index < size/2; frwd_index++)
+    {
+        int tmp;
+        tmp = nums[frwd_index];
+        nums[frwd_index] = nums[last-frwd_index];
+        nums[last-frwd_index] = tmp;
+    }
+}
+
+void rotate_array_optimize(int *nums , int size ,int rotate_count)
+{
+    reverse_array(nums , size);
+    
+    reverse_array(nums, rotate_count);
+
+    int last = size-1;
+    for (int frwd_index = rotate_count; frwd_index < (size - rotate_count)/2; frwd_index++)
+    {
+        int tmp;
+        tmp = nums[frwd_index];
+        nums[frwd_index] = nums[last-frwd_index];
+        nums[last-frwd_index] = tmp;
+    }
+}
+
 
 
 /* 
  * test_rotate_array checks if the rotated array actually represents the
- * origianal_array after nu number of rotations from the right hand side.
+ * origianal_array after  number of rotations from the right hand side.
 */
 bool test_rotate_array(int *rotated_array, int size, int n,int* orig_array)
 {
-
 
 // 1 2 3 4 5 6 7 8 9 10
 // n= 2
@@ -78,6 +113,7 @@ bool test_rotate_array(int *rotated_array, int size, int n,int* orig_array)
 
 
 
+
 int main()
 {
     int rotate_count;
@@ -90,7 +126,7 @@ int main()
     //This function call gets the user input for the original arraay
     my_nums = create_new_array_and_intialize_with_user_input(MAX_SIZE);
 
-    // initialize_array_with_random_elements(my_nums, 10);
+    //initialize_array_with_random_elements(my_nums, 10);
     //This initializes the array with random elements.
     
     //here the original array is stored as the the array gets rotated in later part
@@ -99,12 +135,14 @@ int main()
     orig_array = clone_array(my_nums,MAX_SIZE);
     rotate_array(my_nums, MAX_SIZE, rotate_count);    
     assert(test_rotate_array(my_nums,MAX_SIZE,rotate_count,orig_array));
+    rotate_array_optimize(my_nums,MAX_SIZE,rotate_count);
 
     // "origginal array: [ 10, 20, 30 ]
     // "rotated array: [ 30, 10, 20 ]
 
     print_array("Original array",orig_array,MAX_SIZE);
     print_array("Rotated array",my_nums,MAX_SIZE);
+
 
     /* Verify rotate array*/   
 
