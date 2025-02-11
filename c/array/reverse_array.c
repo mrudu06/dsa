@@ -7,14 +7,15 @@
 
 /*
 * Reverse Array
- * tmp
-* nums[fwd_index]                       nums[reverse_index]
-*     5                2     3    4        1
+* tmp
+*nums[fwd_index]           nums[reverse_index]
+*     5          2   3   4   1
 * 1 2 3 4 5 
 * 5 4 3 2 1
-* j-starts from end , i starts from 0
-* stops when j=i
-*nums[j] = nums[i]
+* last-starts from end ,frwd_index starts from 0
+* stops when frwd_index,size/2
+* swaps the two munbers by first assigning one number to temp and then assigning the temp to the other number.
+* This is the same method as swapping two numbers.
 *It reverses the whole array as shown in place.
 */
 void reverse_array(int *nums,int size)
@@ -51,14 +52,15 @@ bool test_reverse_array(int *reversed_array, int size,int* orig_array)
      */
 
     int last_idx = size-1;
-    for (int i=0; i<size/2; i++)
+    for (int i=0; i<size; i++)
     {
-        if (reversed_array[i] != orig_array[last_idx])
+        if (reversed_array[i] != orig_array[last_idx-i])
         {
             return false;
         }
-    
     }
+    return true;    
+
 }
 
 int main()

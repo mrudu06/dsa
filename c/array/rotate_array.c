@@ -27,14 +27,6 @@ void rotate_array(int *nums, int size, int rotate_count)
     }
 }
 
-/*
-* 1 2 3 4 5 6 7 8 9
-* 9 8 7 6 5 4 3 2 1 
-* no.rc = 3
-* 7 8 9 6 5 4 3 2 1
-* 7 8 9 1 2 3 4 5 6
-*/
-
 void reverse_array(int *nums,int size)
 {
     int last = size-1;
@@ -53,14 +45,7 @@ void rotate_array_optimize(int *nums , int size ,int rotate_count)
     
     reverse_array(nums, rotate_count);
 
-    int last = size-1;
-    for (int frwd_index = rotate_count; frwd_index < (size - rotate_count)/2; frwd_index++)
-    {
-        int tmp;
-        tmp = nums[frwd_index];
-        nums[frwd_index] = nums[last-frwd_index];
-        nums[last-frwd_index] = tmp;
-    }
+    reverse_array(&nums[rotate_count], size-rotate_count);
 }
 
 
@@ -136,6 +121,8 @@ int main()
     rotate_array(my_nums, MAX_SIZE, rotate_count);    
     assert(test_rotate_array(my_nums,MAX_SIZE,rotate_count,orig_array));
     rotate_array_optimize(my_nums,MAX_SIZE,rotate_count);
+    assert(test_rotate_array(my_nums,MAX_SIZE,rotate_count,orig_array));
+
 
     // "origginal array: [ 10, 20, 30 ]
     // "rotated array: [ 30, 10, 20 ]
