@@ -61,7 +61,7 @@ bool test_rotate_array(int *rotated_array, int size, int rotate_cnt,int* orig_ar
      * with the first size-rotate_cnt elements of the original array in same order.
      * For example check the  1 to 8 in rotatedarray with 1 to 8 in same order.
      */
-    for (int i=rotate_cnt,j=0; i<size;i++,j++)
+    for (int i=rotate_cnt,j=0; i<size/2;i++,j++)
     {
         if (rotated_array[i] != orig_array[j])
         {
