@@ -10,7 +10,8 @@
 *   This function basically reverses the element with the one next to it .
 *   THis is done by iterating the element through even places .(ie)"idx" starts from 0 and then next moves to 2 , 4
 *   and so on .
-*   Here the print_array function fromt the array_utils is called in order to print the changes done to the orignial array "nums".
+*   Here the print_array function fromt the array_utils is called in order to print the changes done to the orignial array 
+*   "nums".
 */
 int reverse_array_odd_even(int *nums ,int size)
 {
