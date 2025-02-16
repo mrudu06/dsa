@@ -5,6 +5,8 @@
 #include <fcntl.h>
 #include <assert.h>
 #include <stdbool.h>
+#define MAX_SIZE 10
+
 
 extern int get_array_size_from_user();
 

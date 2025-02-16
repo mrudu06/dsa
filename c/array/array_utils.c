@@ -4,6 +4,8 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include "array_utils.h"
+#define MAX_SIZE 10
+
 
 /* 
  *  get_array_size_from_user gets the array size from the user.
