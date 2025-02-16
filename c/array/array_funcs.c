@@ -7,9 +7,10 @@
 
 /* 1 2 3 4 5 6 7 8 9 0 
 *  2 1 4 3 6 5 8 7 0 9 
-*  "idx" starts from 0 and iterates leaving a element in between.
-*   
-*
+*   This function basically reverses the element with the one next to it .
+*   THis is done by iterating the element through even places .(ie)"idx" starts from 0 and then next moves to 2 , 4
+*   and so on .
+*   Here the print_array function fromt the array_utils is called in order to print the changes done to the orignial array "nums".
 */
 int reverse_array_odd_even(int *nums ,int size)
 {
@@ -20,9 +21,7 @@ int reverse_array_odd_even(int *nums ,int size)
         nums [idx] = nums[idx+1];
         nums[idx+1] = temp;
     }
-    print_array("REversed Array of elemetns adjacent to each other:\n",nums,MAX_SIZE);
-
-    
+    print_array("REversed Array of elemetns adjacent to each other:\n",nums,MAX_SIZE);  
 }
 
 int main()
