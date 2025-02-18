@@ -13,7 +13,7 @@
 *   Here the print_array function fromt the array_utils is called in order to print the changes done to the orignial array 
 *   "nums".
 */
-int reverse_array_odd_even(int *nums ,int size)
+int swap_array_odd_even(int *nums ,int size)
 {
     int temp = 0;
     for (int idx=0; idx < size; idx+=2)
@@ -22,12 +22,15 @@ int reverse_array_odd_even(int *nums ,int size)
         nums [idx] = nums[idx+1];
         nums[idx+1] = temp;
     }
-    print_array("REversed Array of elemetns adjacent to each other:\n",nums,MAX_SIZE);  
 }
+
+// int swap_array_of_pf
 
 int main()
 {
-    int *nums = create_new_array_and_intialize_with_user_input(MAX_SIZE);
-    reverse_array_odd_even(nums,MAX_SIZE);
+    int *nums = create_new_array_and_initalize_with_random_elements_with_range(MAX_SIZE);
+    print_array("Original Array :\n",nums,MAX_SIZE);
+    swap_array_odd_even(nums,MAX_SIZE);
+    print_array("Swapped Array of elemetns adjacent to each other:\n",nums,MAX_SIZE);  
 
 }

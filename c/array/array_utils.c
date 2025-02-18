@@ -48,12 +48,21 @@ void initialize_array_with_user_input(int *array, int size)
     }    
 }
 
+/*initializes the array with random elements generated.*/
 void initialize_array_with_random_elements(int *array, int size)
 {
-    // HTis funiton initializes the array with random elements generated.
     for (int i = 0; i < size; i++)
     {
         array[i] = rand();
+    }
+}
+
+/* This function initializes the array within given range for the random elements generated.*/
+void initialize_array_with_random_elements_within_range(int *array, int size, int min, int max)
+{
+    for (int i = 0; i < size; i++)
+    {
+        array[i] = min + (rand() % (max-min+1));
     }
 }
 
@@ -73,6 +82,14 @@ int *create_new_array_and_initalize_with_random_elements(int size)
     return array;
 }
 
+int *create_new_array_and_initalize_with_random_elements_with_range(int size,int min, int max)
+{    
+    // This function us the combination of the above two funitons with values generated randomly. 
+    int *array = create_new_array(size);
+    initialize_array_with_random_elements_within_range(array,MAX_SIZE,min,max);
+    return array;
+}
+
 int *clone_array(int *nums, int size)
 {
     // This funciton initializes the clone array which helps to check if the rotation of array is done corretly.   
@@ -80,6 +97,8 @@ int *clone_array(int *nums, int size)
     memcpy(clone_array, nums, size * sizeof(int));
     return clone_array;
 }
+
+
 
 // char n='0';
 // char *name = "mrudu";
