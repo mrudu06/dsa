@@ -16,7 +16,4 @@ class Solution:
         return op
 
 
-# Example usage
-s = Solution()
-result = s.findWords(["Alaska", "Dad", "Peace", "Type"])
-print(result)
+
